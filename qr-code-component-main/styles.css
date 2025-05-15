@@ -1,0 +1,14 @@
+.Card{
+
+justify-content: center;
+text-align: center;
+justify-items: center;
+}
+
+h1{
+    color: blueviolet;
+}
+
+p{
+    color: black;
+}
