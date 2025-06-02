@@ -45,7 +45,7 @@ function Ticket() {
             {/* Avatar Upload */}
             <div className='mb-4'>
             <label htmlFor="avatar" className='block mb-1 font-semibold'>Upload Avatar</label>
-            <input type="file" name='avatar' accept='image/*' onChange={handleAvatarChange} placeholder='Drag and drop or click to upload' 
+            <input type="file" name='avatar' accept='image/*' onChange={handleAvatarChange}  
             className='w-full text-sm text-white bg-[#1F1B2E]/30 border border-dashed border-gray-400 p-3 rounded-md'/>
             <p className='text-xs text-gray-400 mt-1'>Upload your photo (JPG or PNG, max size: 500KB)</p>
             {/* Avatar Preview */}
@@ -80,16 +80,43 @@ function Ticket() {
         </form>
         </>
         ):(
-            <div>
-                <h3>Your Ticket </h3>
-                {avatar && (
-                   <img src="/public/assets/images/pattern-ticket.svg" alt="ticket" />
+            <div className='relative max-w-md mx-auto'>
+                {/* Ticket Background */}
+                <h3 className='text-white flex justify-center items-center gap-3 mb-6'> <img src="/public/assets/images/logo-mark.svg" alt="" /> Coding Conf </h3>
+                {ticketGenerated &&(
+                    <div className='text-center'>
+                    <h2 className='text-3xl font-mono font-bold'> Congrats, <span className='text-orange-300'>{fullname}</span> ! <br />
+                    Your ticket is ready.
+                    </h2>
+                    <p className='mt-4 text-sm text-gray-300'>
+                    We've emailed your ticket to <span className='text-orange-300'>{email} </span><br /> 
+                     and will send updates in the run up to the event. </p>
+                    </div>
                 )}
-                <p> Full Name: {fullname} </p>
-                <p> Email Address: {email} </p>
-                <p> Github Username: {githubUser} </p>
-                <button></button>
+                <img src="/assets/images/pattern-ticket.svg" alt="ticket-bg" 
+                className='w-full h-[350px] '/>
+                
+                {/* Ticket Card */}
+                <div className='absolute inset-0 flex flex-col justify-center items-start px-8 py-6 text-white text-center mt-8'>
+                <div className='flex items-center gap-4 mt-[150px]'>
+                    {avatar && (
+                   <img src= {URL.createObjectURL (avatar)} alt="avatar" width={100} 
+                   className='w-20 h-20 rounded-full object-cover border-2 border-orange-500'/>
+                )}
+                <div>
+                    <p className='text-lg font-bold'>{fullname} </p>
+                    <p className='text-sm text-gray-400'>@{githubUser} </p>
+                </div>
+                </div>
 
+                <div className='mt-4 border-t border-gray-700 pt-4 text-left'>
+                    <p className='uppercase text-xs text-gray-400 tracking-wide gap-2'> Coding Conf</p>
+                    <p className='text-sm"'>Jan 31, 2025 &bull; Austin, TX</p>
+                </div>
+
+
+                </div>
+    
             </div>  
         )}
 
