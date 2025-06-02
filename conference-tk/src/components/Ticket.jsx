@@ -51,9 +51,9 @@ function Ticket() {
             {/* Avatar Preview */}
 
             {avatar && (
-                <div>
-                    <h3>Avatar Preview</h3>
-                    <img src={URL.createObjectURL(avatar)} alt="avatar" width={100}/>
+                <div className='mt-2'>
+                    <h3 className='text-sm font-semibold'>Avatar Preview</h3>
+                    <img src={URL.createObjectURL(avatar)} alt="avatar" width={100} className='w-20 h-20 rounded-full mt-2'/>
                 </div>
             )}
         </div>
@@ -80,44 +80,39 @@ function Ticket() {
         </form>
         </>
         ):(
-            <div className='relative max-w-md mx-auto'>
-                {/* Ticket Background */}
-                <h3 className='text-white flex justify-center items-center gap-3 mb-6'> <img src="/public/assets/images/logo-mark.svg" alt="" /> Coding Conf </h3>
-                {ticketGenerated &&(
-                    <div className='text-center'>
-                    <h2 className='text-3xl font-mono font-bold'> Congrats, <span className='text-orange-300'>{fullname}</span> ! <br />
-                    Your ticket is ready.
-                    </h2>
-                    <p className='mt-4 text-sm text-gray-300'>
-                    We've emailed your ticket to <span className='text-orange-300'>{email} </span><br /> 
-                     and will send updates in the run up to the event. </p>
-                    </div>
-                )}
-                <img src="/assets/images/pattern-ticket.svg" alt="ticket-bg" 
-                className='w-full h-[350px] '/>
+            <div className='bg-[#0D0221] p-6 rounded-xl shadow-xl text-white text-center'>
+                {/* Ticket Header */}
+                <div className='flex items-center justify-center gap-2 mb-6'>
+                    <img src="/assets/images/logo-mark.svg" alt="logo"  className='w-6 h-6'/>
+                    <h3 className='text-lg font-semibold'> Coding Conf </h3>
+                </div>
                 
-                {/* Ticket Card */}
-                <div className='absolute inset-0 flex flex-col justify-center items-start px-8 py-6 text-white text-center mt-8'>
-                <div className='flex items-center gap-4 mt-[150px]'>
-                    {avatar && (
+                {/* Avatar */}
+                <div className='flex justify-center mb-4'>
+                {avatar && (
                    <img src= {URL.createObjectURL (avatar)} alt="avatar" width={100} 
-                   className='w-20 h-20 rounded-full object-cover border-2 border-orange-500'/>
+                   className='w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-orange-500'/>
                 )}
+                
+                </div>
+                <h2 className='text-2xl font-bold mb-2'> Congrats, <span className='text-orange-300'>{fullname}</span> !</h2>
+                <p className='text-sm text-gray-300 mb-4'>Your ticket is ready. </p>
+                
+                {/* Email confiemation */}
                 <div>
-                    <p className='text-lg font-bold'>{fullname} </p>
-                    <p className='text-sm text-gray-400'>@{githubUser} </p>
-                </div>
-                </div>
-
-                <div className='mt-4 border-t border-gray-700 pt-4 text-left'>
-                    <p className='uppercase text-xs text-gray-400 tracking-wide gap-2'> Coding Conf</p>
-                    <p className='text-sm"'>Jan 31, 2025 &bull; Austin, TX</p>
+                <p>We've emailed your ticket to <span className='text-orange-300'>{email} </span><br /> 
+                     and will send updates in the run up to the event.
+                </p>
                 </div>
 
-
+                {/* Footer information */}
+                <div className='mt-4 pt-4 border-t border-gray-700'>
+                    <p className='uppercase text-xs text-gray-400 tracking-wide'> Coding Conf</p>
+                    <p className='text-sm'>Jan 31, 2025 &bull; Austin, TX</p>
+                    <p className='text-sm mt-1 text-gray-500'> @{githubUser} </p>
                 </div>
-    
-            </div>  
+        
+                </div>
         )}
 
         </div>
@@ -126,3 +121,4 @@ function Ticket() {
 }
 
 export default Ticket
+
