@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import ProductData from '../Data/data.json'
 
+
 function ProductList() {
 
   const [cart, setCart]= useState([])
+
 
   const addToCart = (product)=>{
     const exist = cart.find(item=>item.name===product.name)
@@ -36,13 +38,16 @@ function ProductList() {
     } 
 
     alert(`Thank you for your purchase! Total: $ ${cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}`)
+  
   }
+
   
   
-    return (
+    
+  return (
     <div className='flex max-w-7xl mx-auto px-4 py-6 gap-6'>
       <div className='flex-1'>
-          <h2 className='text-3xl font-bold mb-6 text-center'>🍰 Product List</h2>
+          <h2 className='text-3xl font-bold mb-6 text-center font-serif'>Desserts</h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10'>
           
           {ProductData.map(item=>(
@@ -84,7 +89,7 @@ function ProductList() {
         
       {/* // Checkout Button */}
       <button onClick={handleCheckout} 
-      className='w-full py-3 bg-green-600 text-white rounded hover:bg-green-700 transition disabled:bg-gray-400' disabled = {cart.length === 0}> Checkout</button>
+      className='w-full py-3 bg-green-600 text-white rounded hover:bg-green-700 transition disabled:bg-gray-400' disabled={cart.length === 0} > Checkout</button>
       
       </div>
 

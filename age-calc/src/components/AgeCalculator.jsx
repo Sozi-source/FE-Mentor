@@ -60,7 +60,7 @@ const CalculateAge = ()=>{
       
       <button onClick={CalculateAge} 
       className='w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300'> Calculate</button>
-      {age && <p className='mt-6 text-green-600 font-medium text-center'> {age} </p> }
+      {age && <p className='mt-6 text-green-600 font-medium text-center animate-bounce'> {age} </p> }
       { error && <p className='mt-4 text-red-500 text-sm text-center'> {error} </p> }
       </div>
     </div>

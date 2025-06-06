@@ -10,6 +10,8 @@ const [querytype, setQuerytype] = useState("");
 const [consent, setConsent] = useState(false)
 
 
+
+
 const handleSubmit =(e)=>{
 e.preventDefault()
 
@@ -18,6 +20,19 @@ if(!consent){
     return
 }
 alert("Form data submitted successfully")
+
+// Local storage
+const formData = {
+    firstname,
+    lastname,
+    email,
+    message,
+    querytype,
+    consent,
+    timestamp: new Date().toLocaleString('en-KE', {timeZone: 'Africa/Nairobi'})
+}
+
+localStorage.setItem("FormData", JSON.stringify(formData))
 
 // Clear form fields
 setFirstname("");
@@ -28,6 +43,7 @@ setMessage("");
 setConsent(false)
 
 }
+
 
  
   
@@ -80,7 +96,7 @@ setConsent(false)
             
             {/* Consent */}
             <div className='flex items-center'>
-            <input type="checkbox" name="consent" value={consent} onChange={(e)=>setConsent(e.target.checked)} required />
+            <input type="checkbox" name="consent" checked={consent} onChange={(e)=>setConsent(e.target.checked)} required />
             <label htmlFor="consent" className='text-sm text-gray-700 ml-3'> I consent to being contacted by the team</label>
             </div>
             {/* Submit button */}

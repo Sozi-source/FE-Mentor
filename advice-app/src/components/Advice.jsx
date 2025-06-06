@@ -23,7 +23,7 @@ function Advice() {
         <h2 className='text-xl font-semibold text-center text-green-300'>Advice #{slip.id} </h2>
         <p className='text-base text-center leading-relaxed'>{slip.advice} </p>
 
-        <img src="/public/images/pattern-divider-mobile.svg" alt="" />
+        <img src="/public/images/pattern-divider-mobile.svg" alt="" className='inline-block' />
         
         <div className='flex justify-center'>
             <button onClick={fetchAdvice} className='bg-teal-500 hover:bg-teal-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300'> <img src="/public/images/icon-dice.svg" alt="" /></button>
